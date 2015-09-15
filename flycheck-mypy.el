@@ -55,7 +55,7 @@ See URL `http://mypy-lang.org/'."
   ((error line-start (file-name) ":" line ": error:" (message) line-end))
   :modes python-mode)
 
-(add-to-list 'flycheck-checkers 'python-mypy)
+(add-to-list 'flycheck-checkers 'python-mypy t)
 
 (provide 'flycheck-mypy)
 ;;; flycheck-mypy.el ends here
