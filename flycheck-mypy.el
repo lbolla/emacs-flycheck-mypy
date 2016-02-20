@@ -9,7 +9,7 @@
 
 ;;; Commentary:
 
-;; This package adds support for mypy to flycheck. To use it, add
+;; This package adds support for mypy to flycheck.  To use it, add
 ;; to your init.el:
 
 ;; (require 'flycheck-mypy)
@@ -45,12 +45,21 @@
 ;;; Code:
 (require 'flycheck)
 
+(flycheck-def-args-var flycheck-python-mypy-args python-mypy)
+
 (flycheck-define-checker python-mypy
-  "Mypy syntax checker. Requires mypy>=0.2.0.
+  "Mypy syntax checker. Requires mypy>=0.3.1.
+
+Customize `flycheck-python-mypy-args` to add specific args to default
+executable.
+
+E.g. when processing Python2 files, add \"--py2\".
 
 See URL `http://mypy-lang.org/'."
 
-  :command ("mypy" source-original)
+  :command ("mypy"
+            (eval flycheck-python-mypy-args)
+            source-original)
   :error-patterns
   ((error line-start (file-name) ":" line ": error:" (message) line-end))
   :modes python-mode)
