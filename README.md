@@ -1,6 +1,8 @@
 flycheck-mypy
 =================
 
+**This library is DEPRECATED. Its functionality has been merged on Flycheck.**
+
 [![MELPA](http://melpa.org/packages/flycheck-mypy-badge.svg)](http://melpa.org/#/flycheck-mypy)
 
 Since version [3.5](https://www.python.org/downloads/release/python-350/), Python supports typing hints.
